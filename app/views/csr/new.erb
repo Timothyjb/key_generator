@@ -1,0 +1,53 @@
+<h1>CSR Generator</h1>
+
+<div class="col-4">
+  <form action="/csr/create" method="post" id="csr-form">
+    <label for="country">Country</label>
+    <div class="text-input">
+      <input id="country" name="country" value=<%= @csr_creater.country || "US" %>>
+    </div>
+
+    <label for="state">State</label>
+    <div class="text-input">
+      <input id="state" name="state" value=<%= @csr_creater.state || "TX" %>>
+    </div>
+
+    <label for="city">City</label>
+    <div class="text-input">
+      <input id="city" name="city" value=<%= @csr_creater.city || "Austin" %>>
+    </div>
+
+
+    <label for="organization">Organization</label>
+    <div class="text-input">
+      <input id="organization" name="organization" value=<%= @csr_creater.organization %>>
+    </div>
+
+    <label for="department">Department</label>
+    <div class="text-input">
+      <input id="department" name="department" value=<%= @csr_creater.department %>>
+    </div>
+
+    <label for="common_name">Common Name</label>
+    <div class="text-input">
+      <input id="common_name" name="common_name" value=<%= @csr_creater.common_name %>>
+    </div>
+
+    <label for="email">Email</label>
+    <div class="text-input">
+      <input id="email" name="email" value=<%= @csr_creater.email %>>
+    </div>
+
+
+    <input type="submit">
+  </form>
+</div>
+
+
+<div class="col-8 <%= if @csr_creater.csr.nil? then "grayed" end %>">
+  <label for="csr-display">Certificate Request</label>
+  <textarea readonly class="key-display" id="csr-display"><%= @csr_creater.csr %></textarea>
+
+  <label for="key-display">Private Key</label>
+  <textarea readonly class="key-display key-display-extended" id="key-display"><%= @csr_creater.private_key %></textarea>
+</div>
