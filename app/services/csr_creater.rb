@@ -9,9 +9,6 @@ class CsrCreater
                 :common_name,
                 :email
 
-  def initialize
-  end
-
   def call()
     request = OpenSSL::X509::Request.new
     request.version = 0
