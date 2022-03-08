@@ -14,9 +14,14 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'rspec'
+require 'rack/test'
+require 'sinatra'
 Dir['./app/services*/*.rb'].each {|file| require file }
+Dir['./app/controllers*/*.rb'].each {|file| require file }
 
 RSpec.configure do |config|
+  config.include Rack::Test::Methods
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
