@@ -1,5 +1,3 @@
-# require 'sinatra/json'
-
 class CsrController < ApplicationController
 
   get '/csr/new' do
@@ -9,9 +7,6 @@ class CsrController < ApplicationController
   end
 
   post '/csr/create' do
-    # binding.pry
-    p params
-
     @csr_creater = CsrCreater.new
     @csr_creater.country = params[:country]
     @csr_creater.state = params[:state]
